@@ -31,14 +31,18 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.springmvc_maven.dao"/>
+    </bean>
+
     <!-- 트랜젝션 관리 객체 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-<!--    <aop:config>-->
-<!--        &lt;!&ndash; Service 클래스에만 적용되도록 함 &ndash;&gt;-->
-<!--        <aop:pointcut id="transactionPointcut" expression="within(com.springmvc_maven.service.*)"/>-->
-<!--    </aop:config>-->
+    <!--    <aop:config>-->
+    <!--        &lt;!&ndash; Service 클래스에만 적용되도록 함 &ndash;&gt;-->
+    <!--        <aop:pointcut id="transactionPointcut" expression="within(com.springmvc_maven.service.*)"/>-->
+    <!--    </aop:config>-->
 </beans>

@@ -6,6 +6,6 @@
 <configuration>
 	<typeAliases>
 		<!-- 회원 정보 -->
-		<typeAlias alias="UserInfoVO" type="VO클래스" />
+		<typeAlias type="com.springmvc_maven.vo.user.UserInfoVO" alias="UserInfoVO"  />
 	</typeAliases>
 </configuration>
