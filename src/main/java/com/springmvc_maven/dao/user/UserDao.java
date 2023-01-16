@@ -2,12 +2,10 @@ package com.springmvc_maven.dao.user;
 
 import com.springmvc_maven.vo.user.UserInfoVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
-@Repository
 /* 회원정보 테이블 작업 (user_info) */
 public interface UserDao {
 

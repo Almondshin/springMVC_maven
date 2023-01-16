@@ -8,15 +8,15 @@
 
     <!-- 커넥션풀 DataSource 객체 -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8"/>
         <property name="username" value="root"/>
         <property name="password" value="root123"/>
-        <property name="initialSize" value="0"/>
-        <property name="minIdle" value="0"/>
-        <property name="maxIdle" value="10"/>
-        <property name="maxTotal" value="10"/>
-        <property name="maxWaitMillis" value="1000"/>
+<!--        <property name="initialSize" value="0"/>-->
+<!--        <property name="minIdle" value="0"/>-->
+<!--        <property name="maxIdle" value="10"/>-->
+<!--        <property name="maxTotal" value="10"/>-->
+<!--        <property name="maxWaitMillis" value="1000"/>-->
     </bean>
 
     <!-- sqlSessionFactory -->
@@ -27,7 +27,7 @@
     </bean>
 
     <!-- SqlSessionTemplate -->
-    <bean id="sqlSessoinTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 

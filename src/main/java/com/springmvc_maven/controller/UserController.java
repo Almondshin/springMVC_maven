@@ -33,16 +33,6 @@ public class UserController {
 		return "main";
 	}
 
-	/**
-	 * 메일 인증 접속 시 리다이렉트
-	 * 
-	 * @return
-	 */
-	@RequestMapping("/rememberMeCertifying")
-	public String rememberMeCertifying() {
-
-		return "redirect:/";
-	}
 
 	/**
 	 * 로그인 단순 화면 요청
@@ -82,7 +72,6 @@ public class UserController {
 	 */
 	@RequestMapping("/user/registerAsk")
 	public String registerAsk(@ModelAttribute UserInfoVO userInfo, Model model) {
-
 		// 회원정보 및 디폴트 권한 입력
 		boolean result = userService.insertUserInfo(userInfo);
 
@@ -104,10 +93,11 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/user/userInfoAsk")
-	public String userInfoAsk(Principal prin, Model model) {
+	public String userInfoAsk( Model model) {
 
-		UserInfoVO userInfo = userService.selectUserInfoOne(prin.getName());
+		UserInfoVO userInfo = userService.selectUserInfoOne("1");
 		model.addAttribute("userInfo", userInfo);
+		System.out.println(userInfo);
 		return "/user/userInfo";
 	}
 }

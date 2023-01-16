@@ -3,7 +3,7 @@
 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 사용자 정보 테이블(user_info) 작업 -->
-<mapper namespace="com.springmvc_maven.dao.**">
+<mapper namespace="com.springmvc_maven.dao.user.UserDao">
 
 	<!-- 사용자 존재 여부 조회 -->
 	<select id="selectUserInfoCount" parameterType="String" resultType="Integer">
@@ -31,7 +31,7 @@
 	<!-- 사용자 정보 추가(가입) -->
 	<insert id="insertUserInfo" parameterType="UserInfoVO">
 		insert into user_info values
-		(#{userId},#{userPw},#{userName},#{userPhone},#{userEmail},#{userInitTime})
+		(#{userId},#{userPw},#{userName},#{userPhone},#{userInitTime})
 	</insert>
 
 	<!-- 사용자 디폴트 권한 추가(가입) -->

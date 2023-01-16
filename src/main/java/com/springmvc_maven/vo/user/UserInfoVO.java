@@ -7,7 +7,6 @@ public class UserInfoVO {
 	private String userPw;
 	private String userName;
 	private String userPhone;
-	private String userEmail;
 	private String userInitTime;
 
 	public String getUserId() {
@@ -40,14 +39,6 @@ public class UserInfoVO {
 
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
 	}
 
 	public String getUserInitTime() {
