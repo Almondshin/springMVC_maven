@@ -97,7 +97,6 @@ public class UserController {
         if (userService.selectUserInfoOne(userId) != null) {
             UserInfoVO userInfo = userService.selectUserInfoOne(userId);
             model.addAttribute("userInfo", userInfo);
-            System.out.println(userInfo.getUserId());
             return "/user/userInfo";
         } else {
             model.addAttribute("confirmMsg", "사용자 없음");
@@ -113,14 +112,15 @@ public class UserController {
         return "";
     }
 
+
     @RequestMapping(value = "/user/uniqueUserInfo", method = RequestMethod.GET)
     public String uniqueUserInfo(Model model, @RequestParam("unique") String unique) {
         List<UserInfoVO> userInfoVO = userService.uniqueUserInfo(unique);
         model.addAttribute("unique", userInfoVO);
-        userInfoVO.forEach(e -> System.out.println(e.getUserName()));
-        for (UserInfoVO infoVO : userInfoVO) {
-            System.out.println(infoVO.getUserName());
-        }
+        userInfoVO.forEach(e -> System.out.println(e.getUserId()));
+//        for (UserInfoVO infoVO : userInfoVO) {
+//            System.out.println(infoVO.getUserName());
+//        }
         return "/user/uniqueUserInfo";
     }
 }

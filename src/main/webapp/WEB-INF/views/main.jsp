@@ -13,10 +13,10 @@
 </head>
 <body>
 <a href="/registerUserView">회원가입</a> </br>
-<a href="/user/userInfoAsk">회원조회</a> </br>
+<%--<a href="/user/userInfoAsk">회원조회</a> </br>--%>
 <form action="/user/uniqueUserInfo">
     <input type="text" name="unique">
-    <input type="submit" value="특정문구 조회">
+    <input type="submit" value="조회">
 </form>
 <%--<a  href="javascript: userListLAll();">전체조회</a>--%>
 <button onclick="return false;" id="userListLAll">전체조회</button>

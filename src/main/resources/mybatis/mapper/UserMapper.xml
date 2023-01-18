@@ -40,7 +40,7 @@
 	</update>
 	
 	<select id="uniqueUserInfo" parameterType="UserInfoVO" resultType="UserInfoVO">
-		SELECT userId,userName FROM user_info WHERE userName LIKE CONCAT('%',#{unique}, '%')
+		SELECT userId,userName,userPhone,userPw,userInitTime FROM user_info WHERE userName LIKE CONCAT('%',#{unique}, '%')
 	</select>
 
 
