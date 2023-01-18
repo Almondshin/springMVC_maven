@@ -9,14 +9,9 @@
     <!-- 커넥션풀 DataSource 객체 -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8"/>
         <property name="username" value="root"/>
         <property name="password" value="root123"/>
-<!--        <property name="initialSize" value="0"/>-->
-<!--        <property name="minIdle" value="0"/>-->
-<!--        <property name="maxIdle" value="10"/>-->
-<!--        <property name="maxTotal" value="10"/>-->
-<!--        <property name="maxWaitMillis" value="1000"/>-->
     </bean>
 
     <!-- sqlSessionFactory -->
@@ -41,8 +36,4 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--    <aop:config>-->
-    <!--        &lt;!&ndash; Service 클래스에만 적용되도록 함 &ndash;&gt;-->
-    <!--        <aop:pointcut id="transactionPointcut" expression="within(com.springmvc_maven.service.*)"/>-->
-    <!--    </aop:config>-->
 </beans>

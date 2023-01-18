@@ -22,22 +22,10 @@
 		select * from user_info
 	</select>
 
-	<!-- 사용자 권한 조회(1명, 로그인을 위함) -->
-	<select id="selectUserAuthOne" parameterType="String" resultType="String">
-		select userAuth from
-		user_auth where userId=#{value}
-	</select>
-
 	<!-- 사용자 정보 추가(가입) -->
 	<insert id="insertUserInfo" parameterType="UserInfoVO">
 		insert into user_info values
 		(#{userId},#{userPw},#{userName},#{userPhone},#{userInitTime})
-	</insert>
-
-	<!-- 사용자 디폴트 권한 추가(가입) -->
-	<insert id="insertUserAuthDefault" parameterType="String">
-		insert into user_auth values (#{userId},
-		'default')
 	</insert>
 
 	<!-- 사용자 정보 삭제(탈퇴) -->

@@ -17,5 +17,8 @@ ID : ${userInfo.userId}<br>
 전화번호 : ${userInfo.userPhone}<br>
 가입일시 : ${userInfo.userInitTime}<br>
 
+
+${confirmMsg}
+
 </body>
 </html>
