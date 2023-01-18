@@ -12,7 +12,6 @@
 </head>
 <body>
 <form action="/user/registerAsk" method="POST">
-    아이디 : <input type="text" name="userId"><br>
     비밀번호 : <input type="password"name="userPw"><br>
     이름 : <input type="text"name="userName"><br>
     휴대폰 : <input type="text"name="userPhone"><br>

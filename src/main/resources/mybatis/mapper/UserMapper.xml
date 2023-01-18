@@ -25,7 +25,7 @@
 	<!-- 사용자 정보 추가(가입) -->
 	<insert id="insertUserInfo" parameterType="UserInfoVO">
 		insert into user_info values
-		(#{userId},#{userPw},#{userName},#{userPhone},#{userInitTime})
+		(null,#{userPw},#{userName},#{userPhone},#{userInitTime})
 	</insert>
 
 	<!-- 사용자 정보 삭제(탈퇴) -->
