@@ -27,4 +27,7 @@ public interface UserDao {
     // 회원정보 수정
     public void updateUserInfo(UserInfoVO vo);
 
+    // 특정 유저 조회
+    public List<UserInfoVO> uniqueUserInfo(String unique);
+
 }

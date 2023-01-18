@@ -5,21 +5,19 @@ import com.springmvc_maven.vo.user.UserInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 //REST Contoller vs Controller 차이
 /*
-* Controller 는 요청을 보내고 응답을 받는 기능
-*   (Controller는 주로 View를 반환하기 위해 사용한다.)
-* REST Controller는 REST API를 사용하여 요청만 보내는 기능
-*  ->
-*
-* */
+ * Controller 는 요청을 보내고 응답을 받는 기능
+ *   (Controller는 주로 View를 반환하기 위해 사용한다.)
+ * REST Controller는 REST API를 사용하여 요청만 보내는 기능
+ *  ->
+ *
+ * */
 @Controller
 /* 메인, 사용자 관련 */
 public class UserController {
@@ -113,5 +111,16 @@ public class UserController {
 //        System.out.println(userService.selectUserInfoList());
         userService.selectUserInfoList().forEach(System.out::println);
         return "";
+    }
+
+    @RequestMapping(value = "/user/uniqueUserInfo", method = RequestMethod.GET)
+    public String uniqueUserInfo(Model model, @RequestParam("unique") String unique) {
+        List<UserInfoVO> userInfoVO = userService.uniqueUserInfo(unique);
+        model.addAttribute("unique", userInfoVO);
+        userInfoVO.forEach(e -> System.out.println(e.getUserName()));
+        for (UserInfoVO infoVO : userInfoVO) {
+            System.out.println(infoVO.getUserName());
+        }
+        return "/user/uniqueUserInfo";
     }
 }
