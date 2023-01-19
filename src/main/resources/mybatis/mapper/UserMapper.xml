@@ -38,11 +38,18 @@
 
 
 	</update>
-	
+
 	<select id="uniqueUserInfo" parameterType="UserInfoVO" resultType="UserInfoVO">
 		SELECT userId,userName,userPhone,userPw,userInitTime FROM user_info WHERE userName LIKE CONCAT('%',#{unique}, '%')
 	</select>
 
 
+<!--	<select id="uniqueUserInfo" parameterType="UserInfoVO" resultType="UserInfoVO">-->
+<!--		SELECT SUBSTRING(point_log.DATE_FORMAT, 1 ,4) AS "YYMMDD" FORM point_log-->
+<!--		WHERE 1=1-->
+<!--			<if test="uid = 59 and point_type LIKE %초대%">-->
+<!--				AND point_log-->
+<!--			</if>-->
+<!--	</select>-->
 
 </mapper>

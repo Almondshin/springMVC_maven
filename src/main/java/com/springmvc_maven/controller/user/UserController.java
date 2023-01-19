@@ -44,7 +44,6 @@ public class UserController {
 
     /**
      * 로그인 단순 화면 요청
-     *
      * @param request
      * @return
      */
@@ -123,4 +122,18 @@ public class UserController {
 //        }
         return "/user/uniqueUserInfo";
     }
+
+
+    @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
+    public String deleteUserInfo(Model model, @RequestParam("userId") String userId){
+        if(model.getAttribute("userId") != null){
+            userService.deleteUserInfo(userId);
+            model.addAttribute("userId", userService.selectUserInfoOne(userId));
+            return "/user/deleteUser";
+        }
+        return null;
+    }
+
+
+
 }
