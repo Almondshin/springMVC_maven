@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -71,8 +72,8 @@ public class UserController {
      */
     @RequestMapping(value = "/user/registerAsk", method = RequestMethod.POST)
     public String registerAsk(@ModelAttribute UserInfoVO userInfo, Model model) {
-        Date date = new Date();
-        userInfo.setUserInitTime(date.toString());
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        userInfo.setUserInitTime(date.format(new Date()));
         // 회원정보 및 디폴트 권한 입력
         boolean result = userService.insertUserInfo(userInfo);
         if (result) {
