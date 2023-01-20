@@ -124,17 +124,33 @@ public class UserController {
         return "/user/uniqueUserInfo";
     }
 
-
-    @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
-    public String deleteUserInfo(Model model, @RequestParam("userId") String userId){
-        if(model.getAttribute("userId") != null){
-            userService.deleteUserInfo(userId);
-            model.addAttribute("userId", userService.selectUserInfoOne(userId));
-            return "/user/deleteUser";
-        }
-        return null;
+    /*
+     *
+     * 리소스를 삭제하는 데 GET 메서드를 사용하는 것은 안전하지 않고
+     * 멱등성 메서드가 아니므로 권장하지 않습니다(부작용이 없어야 하며 다른 결과 없이 반복 가능해야 함).
+     *  그러나 리소스를 삭제하기 위해 GET 메서드를 사용해야 하는 경우 다음과 같은 방법으로 수행할 수 있습니다.
+     * JSP :  <a href="<c:url value='/users/delete/${user.id}'/>">Delete User</a>
+     */
+/*
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable String id) {
+        userService.deleteUserInfo(id);
+        return "redirect:/users";
     }
+*/
+
+//    @DeleteMapping("/user/delete/{id}")
+//    public ResponseEntity<Void> deleteUser(@PathVariable String id) {
+//        userService.deleteUserInfo(id);
+//        return ResponseEntity.noContent().build();
+//    }
 
 
-
+    @PostMapping("/user/delete/{userId}")
+    @ResponseBody
+    public String deleteUser(@PathVariable("userId") String userId, Model model) {
+        userService.deleteUserInfo(userId);
+        model.addAttribute("result", "delete success");
+        return "success";
+    }
 }

@@ -12,10 +12,11 @@
 </head>
 <body>
 <h1>Delete Employee</h1>
-<p>Are you sure you want to delete the employee with ID: ${userId.userId}?</p>
-<form action="<c:url value='/user/delete/${userId.userId}'/>" method="get">
-  <input type="submit" value="Delete"/>
-  <a href="<c:url value='/main'/>">Cancel</a>
+<%--<p>Are you sure you want to delete the employee with ID: ${userId.userId}?</p>--%>
+<form action="/user/delete/${user_info.userId}" method="post">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="Delete User"/>
 </form>
+${result}
 </body>
 </html>

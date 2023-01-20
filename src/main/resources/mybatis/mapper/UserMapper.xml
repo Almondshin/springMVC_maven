@@ -30,7 +30,7 @@
 
 	<!-- 사용자 정보 삭제(탈퇴) -->
 	<delete id="deleteUserInfo" parameterType="String">
-		delete from user_info where userId=#{value}
+		delete from user_info where userId=#{userId}
 	</delete>
 
 	<!-- 사용자 정보 수정 -->
